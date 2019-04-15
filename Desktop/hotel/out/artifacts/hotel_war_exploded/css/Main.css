@@ -1,0 +1,47 @@
+#main{
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    width: 520px;
+    height: 300px;
+    margin-left: -215px;
+    margin-top: -110px;
+    background-color: rgba(119, 190, 90, 0.5);
+    border-radius: 15px;
+    text-align: center;
+}
+
+room{
+    position: absolute;
+    top: 25%;
+    left: 4%;
+    width: 520px;
+    height: 250px;
+    margin-left: -215px;
+    margin-top: -110px;
+    background-color: rgba(125, 196, 196, 0.5);
+    border-radius: 15px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    width: 250px;
+    display: grid;
+    background-color: #592786;
+    color: #fff;
+    padding: 9px 14px;
+    border-radius: 5px;
+    font-size: 22px;
+}
+
+button2{
+    text-decoration: none;
+    width: 250px;
+    display: grid;
+    background-color: #592786;
+    color: #fff;
+    padding: 9px 14px;
+    border-radius: 5px;
+    font-size: 22px;
+}
