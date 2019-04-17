@@ -14,6 +14,7 @@ import java.io.IOException;
 
 
 public class LoginServlet extends javax.servlet.http.HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String userAccount =request.getParameter("user_account");
@@ -23,6 +24,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         s.login(userAccount,userPassword,request,response);
 
     }
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     }

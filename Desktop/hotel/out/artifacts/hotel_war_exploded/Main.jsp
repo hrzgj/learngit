@@ -13,11 +13,9 @@
     <title>酒店主界面</title>
 </head>
 <body style="background:url(image/timg.jpg) ; ">
-<link rel="stylesheet" type="text/css" href="css/Room.css" />
 <link rel="stylesheet" type="text/css" href="css/Main.css" />
-<div class="main" >
     <tr><a href="Login.jsp">注销用户登录</a> </tr>
-    <div id="main">
+    <div id="main" >
         <br>
         <div ><span class="down">用户管理</span></div>
         <ul>
@@ -39,9 +37,9 @@
     </div>
     <br>
     <br><br>
-    <div class="room">房间管理<span class="down"></span></div>
+    <div class="room" id="main2">房间管理<span class="down"></span>
     <ul>
-        <a href="FindRoom.jsp">浏览，预定房间</a>
+        <a href="FindRoomServlet">浏览，预定房间</a>
     </ul>
     <ul>
         <li>
@@ -53,7 +51,6 @@
         </li>
 
     </ul>
-
 </div>
 </body>
 </html>

@@ -180,7 +180,9 @@ public class UserDaoImpl implements UserDao{
             psmt.setString(5,user.getUserAccount());
             t=psmt.executeUpdate();
             if(t!=0)
+            {
                 return true;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -217,6 +219,7 @@ public class UserDaoImpl implements UserDao{
             return  false;
     }
 
+    //找出数据库中用户的身份
     @Override
     public int findIdentity(String userAccount) throws SQLException {
         Connection con=util.getCon();
@@ -242,6 +245,7 @@ public class UserDaoImpl implements UserDao{
         return -1;
     }
 
+    //更新用户身份
     @Override
     public Boolean updateAdmin(String userAccount, int userIdentity) {
         Connection con=util.getCon();
@@ -260,5 +264,30 @@ public class UserDaoImpl implements UserDao{
         }
         return false;
     }
+
+    @Override
+    public User findUser(int id) {
+        Connection connection=util.getCon();
+        PreparedStatement preparedStatement=null;
+        String sql="select * from user where user_id=?";
+        try {
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            if(resultSet.next())
+            {
+                User user = new User();
+                user=load(user,resultSet);
+                return  user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            util.close(preparedStatement,connection);
+        }
+        return  null;
+    }
+
+
 }
 

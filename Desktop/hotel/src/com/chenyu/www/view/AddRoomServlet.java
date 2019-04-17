@@ -19,7 +19,7 @@ public class AddRoomServlet extends HttpServlet {
         room.setRoomBreakfast(Integer.parseInt(request.getParameter("room_breakfast")));
         room.setRoomHigh(Integer.parseInt(request.getParameter("room_high")));
         room.setRoomPriceAndRoomType(request.getParameter("room_price"));
-        room.setRoomType(request.getParameter("room_type"));
+        room.setRoomType(Integer.parseInt(request.getParameter("room_type")));
         RoomService roomService=new RoomService();
         roomService.addRoom(room,request,response);
 

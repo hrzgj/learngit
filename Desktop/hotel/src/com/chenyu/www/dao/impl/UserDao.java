@@ -18,5 +18,5 @@ public interface UserDao {
      Boolean updateWithoutPassword(User user);
      int findIdentity(String userAccount) throws SQLException;
      Boolean updateAdmin(String userAccount,int userIdentity);
-
+     public User findUser(int id);
 }

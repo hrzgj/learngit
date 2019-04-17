@@ -15,7 +15,7 @@
     <title>修改自己信息</title>
 </head>
 <body style="background:url(image/timg.jpg);">
-<tr><a href="Main.jsp">点击返回主菜单</a> </tr>
+<tr><a href="Main.jsp" >点击返回主菜单</a> </tr>
 <div style="display:block;text-align:center;margin: 202px;">
 
     <form action="UpdateSelfServlet" method="get">

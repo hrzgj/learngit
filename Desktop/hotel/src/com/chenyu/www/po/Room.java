@@ -3,7 +3,7 @@ package com.chenyu.www.po;
 public class Room
 {
     private  int roomID;
-    private  String roomType;
+    private  int roomType;
     private  double roomPrice;
     private  int roomBreakfast;
     private  double roomArea;
@@ -43,11 +43,11 @@ public class Room
         this.roomID = roomID;
     }
 
-    public String getRoomType() {
+    public int getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(String roomType) {
+    public void setRoomType(int roomType) {
         this.roomType = roomType;
     }
 

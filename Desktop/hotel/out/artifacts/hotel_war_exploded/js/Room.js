@@ -1,19 +1,30 @@
-// 获取弹窗
-var modal = document.getElementById('myModal');
+function check() {
+  var roomPrice=document.forms["form2"]["roomPrice"].value;
+  var roomHigh=document.forms["form2"]["roomHigh"].value;
+  var roomArea=document.forms["form2"]["roomArea"].value;
+  if(roomHigh == "" ||roomPrice == "" ||roomArea == "" )
+  {
+        alert("填写不能为空");
+        return false;
+  }
+  else if(roomPrice<=0)
+  {
+      alert("价格不能小于0");
+      return false;
+  }
+  else if(roomArea<=0||roomArea>=1000)
+  {
+      alert("房间面积应在0到1000之间");
+      return false;
+  }
+  else  if(roomHigh<0||roomHigh>50)
+  {
+      alert("房间楼数应在0到50之间");
+      return false;
+  }
+  else if(roomPrice>0&&roomArea>0&&roomArea<=1000&&roomHigh>0&&roomHigh<50)
+  {
+      return true;
+  }
 
-// 打开弹窗的按钮对象
-var btn = document.getElementById("myBtn");
-
-// 获取 <span> 元素，用于关闭弹窗 that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// 点击按钮打开弹窗
-btn.onclick = function() {
-    modal.style.display = "block";
 }
-
-// 点击 <span> (x), 关闭弹窗
-span.onclick = function() {
-    modal.style.display = "none";
-}
-

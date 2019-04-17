@@ -3,8 +3,8 @@
 table {
     border-collapse: collapse;
     font-family: Futura, Arial, sans-serif;
-    border-collapse:collapse;
-    width: 600px;
+    border-collapse: collapse;
+    width: 856px;
     margin: -38px auto;
     text-align: center;
 }
@@ -64,6 +64,28 @@ tr:last-child td:last-child {
 
     border-radius: 0 0 9px 0;
 
+}
+
+.ah {
+    text-decoration: none;
+    width: 103px;
+    display: grid;
+    background-color: #592786;
+    color: #fff;
+    padding: 2px 21px;
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+.ac{
+    text-decoration: none;
+    width: 158px;
+    display: grid;
+    background-color: #485886;
+    color: #fff;
+    padding: 1px 10px;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
 

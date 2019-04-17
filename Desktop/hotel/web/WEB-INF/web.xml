@@ -71,6 +71,29 @@
         <servlet-name>FindRoomServlet</servlet-name>
         <url-pattern>/FindRoomServlet</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>RoomAndUserServlet</servlet-name>
+        <servlet-class>com.chenyu.www.view.RoomAndUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RoomAndUserServlet</servlet-name>
+        <url-pattern>/RoomAndUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FindRoomUserServlet</servlet-name>
+        <servlet-class>com.chenyu.www.view.FindRoomUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindRoomUserServlet</servlet-name>
+        <url-pattern>/FindRoomUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateRoomServlet</servlet-name>
+        <servlet-class>com.chenyu.www.view.UpdateRoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateRoomServlet</servlet-name>
+        <url-pattern>/UpdateRoomServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

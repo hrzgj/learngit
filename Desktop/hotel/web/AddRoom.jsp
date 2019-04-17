@@ -14,7 +14,8 @@
 </head>
 <body style="background:url(image/timg.jpg);">
 <tr><a href="Main.jsp">点击返回主菜单</a> </tr>
-<div style="display:block;text-align:center;margin: 202px;">
+<link rel="stylesheet" type="text/css" href="css/AddRoom.css" />
+<div style="display:block;text-align:center;margin: 202px;" id="login">
     <table align="center">
         <h1 style="color: red;">房间增加</h1>
         <form  action="AddRoomServlet" method="post">
@@ -29,11 +30,11 @@
             <p>
                 <span style="color: green">房间类型(价格将根据房间类型决定)</span>
                 <select name="room_type">
-                    <option value="单人房">单人房</option>
-                    <option value="双人房">双人房</option>
-                    <option value="特价房">特价房</option>
-                    <option value="总统房">总统房</option>
-                    <option value="商务房">商务房</option>
+                    <option value="1">单人房</option>
+                    <option value="2">双人房</option>
+                    <option value="3">特价房</option>
+                    <option value="4">总统房</option>
+                    <option value="5">商务房</option>
                 </select>
             </p>
             <p>

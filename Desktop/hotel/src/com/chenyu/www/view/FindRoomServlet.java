@@ -14,11 +14,9 @@ import java.util.ArrayList;
 @WebServlet(name = "FindRoomServlet")
 public class FindRoomServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         RoomService roomService=new RoomService();
-        ArrayList<Room> rooms=roomService.findRoom();
-        request.getSession().setAttribute("roomList",rooms);
-        response.sendRedirect("/hotel_war_exploded/FindRoom.jsp");
+        roomService.findRoom(request,response);
     }
 
     @Override

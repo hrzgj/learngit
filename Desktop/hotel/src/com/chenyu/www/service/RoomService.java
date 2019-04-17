@@ -2,7 +2,10 @@ package com.chenyu.www.service;
 
 import com.chenyu.www.dao.impl.RoomDao;
 import com.chenyu.www.dao.impl.RoomDaoImpl;
+import com.chenyu.www.dao.impl.UserDao;
+import com.chenyu.www.dao.impl.UserDaoImpl;
 import com.chenyu.www.po.Room;
+import com.chenyu.www.po.User;
 import com.chenyu.www.util.Constant;
 import com.chenyu.www.util.CreatRandomDouble;
 
@@ -33,7 +36,8 @@ public class RoomService {
         }
     }
 
-    public void addRoom(Room room, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //增加房间
+    public void addRoom(Room room, HttpServletRequest request, HttpServletResponse response) throws  IOException {
         //判断房间面积的输入是否正确
         if(!isRoomAreaRight(room.getRoomArea()))
         {
@@ -47,23 +51,23 @@ public class RoomService {
             response.sendRedirect("AddRoom.jsp");
         }
         //以下为根据房间类型自动生成价格
-        if(room.getRoomType().equals(Constant.ROOMTYPE1))
+        if(room.getRoomType()==1)
         {
             room.setRoomPrice(CreatRandomDouble.randomDouble(100,200));
         }
-        else if(room.getRoomType().equals(Constant.ROOMTYPE2))
+        else if(room.getRoomType()==2)
         {
             room.setRoomPrice(CreatRandomDouble.randomDouble(200,400));
         }
-        else if(room.getRoomType().equals(Constant.ROOMTYPE5))
+        else if(room.getRoomType()==3)
         {
             room.setRoomPrice(CreatRandomDouble.randomDouble(50,120));
         }
-        else if(room.getRoomType().equals(Constant.ROOMTYPE3))
+        else if(room.getRoomType()==4)
         {
             room.setRoomPrice(CreatRandomDouble.randomDouble(800,1600));
         }
-        else
+        else if(room.getRoomType()==5)
         {
             room.setRoomPrice(CreatRandomDouble.randomDouble(400,800));
         }
@@ -83,9 +87,66 @@ public class RoomService {
         }
     }
 
-    public ArrayList<Room> findRoom()
+    //将数据库表打印出
+    public void findRoom(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RoomDao roomDao=new RoomDaoImpl();
+        ArrayList<Room> rooms=roomDao.findAllRoom();
+        int pageCount=roomDao.findRow();
+        request.getSession().setAttribute("rooms",rooms);
+        request.getSession().setAttribute("pageCount",pageCount);
+        request.getRequestDispatcher("FindRoom.jsp").forward(request,response);
+
+    }
+
+    //将用户id传入房间表的外键
+    public Boolean appointRoom(User user,int i,HttpServletResponse response) throws IOException {
+        RoomDao roomDao=new RoomDaoImpl();
+        if(roomDao.addRoomAndUser(user,i))
+        {
+            response.sendRedirect("http://localhost:8080/hotel_war_exploded/appointSuccess.jsp");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //找出预定房间的用户
+    public User findRoomUser(int i)
     {
         RoomDao roomDao=new RoomDaoImpl();
-        return roomDao.findAllRoom();
+        UserDao userDao=new UserDaoImpl();
+        if(roomDao.findRoomUser(i)!=-1)
+        {
+            return  userDao.findUser(roomDao.findRoomUser(i));
+        }
+        else {
+            return null;
+        }
     }
+
+    //修改房间信息
+    public Boolean UpdateRoom(int i,HttpServletRequest request, HttpServletResponse response)
+    {
+        RoomDao roomDao =new RoomDaoImpl();
+        ArrayList<Room> rooms=roomDao.findAllRoom();
+        Room room=rooms.get(i);
+        room.setRoomBreakfast(Integer.parseInt(request.getParameter("roomBreakfast")));
+        room.setRoomHigh(Integer.parseInt(request.getParameter("roomHigh")));
+        room.setRoomPrice(Double.parseDouble(request.getParameter("roomPrice")));
+        room.setRoomType(Integer.parseInt(request.getParameter("roomType")));
+        if(roomDao.updateRoom(room))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+
+
+    }
+
 }

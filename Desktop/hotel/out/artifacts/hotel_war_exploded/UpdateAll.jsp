@@ -20,9 +20,10 @@
 </head>
 <body style="background:url(image/timg.jpg);">
 <tr><a href="Main.jsp">点击返回主菜单</a> </tr>
-<div style="display:block;text-align:center;margin: 202px;">
+<link rel="stylesheet" type="text/css" href="css/AddRoom.css" />
+<div style="display:block;text-align:center;margin: 202px;" id="login">
     <form action="UpdateServlet" method="post">
-        <table align="center">
+        <table >
             <p></p><span style="color: green">账号：</span><%=user.getUserAccount()%>
             <p></p><span style="color: green">昵称：</span><input type="text" name="user_Name" value=<%=user.getUserName()%>>
             <font color="red">${requestScope.thisUserName}</font>
