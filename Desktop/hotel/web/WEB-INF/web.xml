@@ -95,5 +95,13 @@
         <servlet-name>UpdateRoomServlet</servlet-name>
         <url-pattern>/UpdateRoomServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CancelAppointServlet</servlet-name>
+        <servlet-class>com.chenyu.www.view.CancelAppointServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CancelAppointServlet</servlet-name>
+        <url-pattern>/CancelAppointServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     User user= (User) session.getAttribute("roomUser");
+    int i= (int) session.getAttribute("this");
 %>
 <html>
 <head>
@@ -23,6 +24,7 @@
         <th width="150" class = "th">用户手机</th>
         <th width="150" class = "th">身份</th>
         <th width="200" class = "th">用户身份证</th>
+        <th>操作</th>
     </tr>
 
 
@@ -32,6 +34,7 @@
         <td align="center" class = "td"><%=user.getUserPhone() %> </td>
         <td align="center" class = "td"><%=user.getIdentity() %> </td>
         <td align="center" class = "td"><%=user.getUserIdNumber() %> </td>
+        <td><a href="CancelAppointServlet?i=<%=i%>">取消其预约</a> </td>
     </tr>
 
     <tr><a href="FindRoom.jsp">点击返回上一页</a> </tr>

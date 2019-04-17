@@ -19,10 +19,11 @@
 
 %>
 <%
+    //分页的一系列操作
     User user= (User) session.getAttribute("user");
     ArrayList<Room> rooms= (ArrayList<Room>) session.getAttribute("rooms");
     Room room=new Room();
-    strPage=request.getParameter("pagenumber");
+    strPage=request.getParameter("pagenumber");//总记录的个数
     if(strPage == null)
         intPage=1;
     else
@@ -31,7 +32,7 @@
         if(intPage<1)
             intPage=1;
     }
-    intPageCount=(rooms.size()+intPageSize-1)/intPageSize;
+    intPageCount=(rooms.size()+intPageSize-1)/intPageSize;//总页数
     if(intPage>intPageCount)
         intPage = intPageCount;
     currPage=intPage*intPageSize-intPageSize;
@@ -99,8 +100,8 @@
             <%-->如果房间未被预定点击即可预定<--%>
             <%if(room.getRoomUser()==0) {%>
             <a href="RoomAndUserServlet?i=<%=i%>" class="ac">未预定(点击即可预定)</a> <%}%>
-            <%-->如果房间已被预定，如果用户是管理员即可点击查看预定用户信息，否则只能提示已预订<--%>
-            <% if(room.getRoomUser()!=0&&user.getIdentity().equals("管理员")) { %>
+            <%-->如果房间已被预定，如果用户是管理员即可点击查看预定用户信息，或者该房间是该用户预定即可点击取消预约，只能提示已预订<--%>
+            <% if((room.getRoomUser()!=0&&user.getIdentity().equals("管理员"))||(room.getRoomUser()==user.getId())) { %>
             <a href="FindRoomUserServlet?i=<%=i%>" class="ac">已预定(点击查看预定人信息)</a> <%}%>
             <% if(user.getIdentity().equals("普通用户")&&room.getRoomUser()!=0){%>
             已预订<%}%>

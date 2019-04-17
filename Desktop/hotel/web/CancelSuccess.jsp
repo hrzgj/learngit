@@ -1,19 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: 86323
-  Date: 2019/4/16
-  Time: 22:38
+  Date: 2019/4/17
+  Time: 21:17
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>预约成功</title>
+    <title>Title</title>
 </head>
 <body>
-<center>预约房间成功，稍后返回房间界面</center>
+<center>取消预约房间成功，稍后返回主界面</center>
 <%
-    response.setHeader("refresh","2;url=/hotel_war_exploded/FindRoom.jsp");
+    response.setHeader("refresh","2;url=/hotel_war_exploded/Main.jsp");
 %>
 </body>
 </html>

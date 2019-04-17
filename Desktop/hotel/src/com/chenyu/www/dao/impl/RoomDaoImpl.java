@@ -195,4 +195,24 @@ public class RoomDaoImpl implements RoomDao {
         return false;
     }
 
+    @Override
+    public Boolean delereRoomAndUser(int id) {
+        Connection connection=util.getCon();
+        PreparedStatement preparedStatement=null;
+        String sql="update room set room_user=null where room_id=?";
+        try {
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            if(preparedStatement.execute())
+            {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            util.close(preparedStatement,connection);
+        }
+        return false;
+    }
+
 }

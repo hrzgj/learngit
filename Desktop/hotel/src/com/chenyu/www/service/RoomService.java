@@ -127,7 +127,7 @@ public class RoomService {
     }
 
     //修改房间信息
-    public Boolean UpdateRoom(int i,HttpServletRequest request, HttpServletResponse response)
+    public Boolean updateRoom(int i,HttpServletRequest request, HttpServletResponse response)
     {
         RoomDao roomDao =new RoomDaoImpl();
         ArrayList<Room> rooms=roomDao.findAllRoom();
@@ -148,5 +148,22 @@ public class RoomService {
 
 
     }
+
+    //取消用户预定房间
+    public Boolean cancel(int i)
+    {
+        RoomDao roomDao=new RoomDaoImpl();
+        ArrayList<Room> rooms=roomDao.findAllRoom();
+        Room room=rooms.get(i);
+        if(roomDao.delereRoomAndUser(room.getRoomID()))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
 
 }

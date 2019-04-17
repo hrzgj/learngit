@@ -14,4 +14,5 @@ public interface RoomDao {
     Boolean addRoomAndUser(User user,int i);
     int findRoomUser(int i);
     Boolean updateRoom(Room room);
+    Boolean delereRoomAndUser(int id);
 }

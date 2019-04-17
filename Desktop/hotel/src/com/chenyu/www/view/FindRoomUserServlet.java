@@ -18,6 +18,7 @@ public class FindRoomUserServlet extends HttpServlet {
         RoomService roomService=new RoomService();
         User user=roomService.findRoomUser(i);
         request.getSession().setAttribute("roomUser",user);
+        request.getSession().setAttribute("this",i);
         response.sendRedirect("RoomUser.jsp");
     }
 

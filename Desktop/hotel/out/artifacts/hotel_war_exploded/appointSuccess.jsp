@@ -11,7 +11,7 @@
     <title>预约成功</title>
 </head>
 <body>
-<center>预约房间成功，稍后返回房间页码</center>
+<center>预约房间成功，稍后返回房间界面</center>
 <%
     response.setHeader("refresh","2;url=/hotel_war_exploded/FindRoom.jsp");
 %>
